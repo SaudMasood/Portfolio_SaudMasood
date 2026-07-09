@@ -1,0 +1,23 @@
+name: task
+description: Saud Masood Portfolio App
+
+publish_to: 'none'
+
+environment:
+sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+flutter:
+sdk: flutter
+url_launcher: ^6.3.0
+font_awesome_flutter: ^10.8.0
+
+dev_dependencies:
+flutter_test:
+sdk: flutter
+
+flutter:
+uses-material-design: true
+
+assets:
+- assets/images/
