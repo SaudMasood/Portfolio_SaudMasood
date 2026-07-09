@@ -81678,7 +81678,7 @@ return A.N(null,r)}})
 return A.O($async$qR,r)},
 got(){var s=this
 return A.c([new A.jm("About",s.x),new A.jm("Experience",s.y),new A.jm("Skills",s.z),new A.jm("Projects",s.Q),new A.jm("Certifications",s.as),new A.jm("Achievements",s.at),new A.jm("Contact",s.ax)],t.W5)},
-L(a){var s,r=this,q=null,p=!(A.bf(a,q,t.w).w.a.a>=1024),o=p?r.a15(a):q,n=A.atf(B.D4,new A.c2(B.nc,A.atA("assets/images/a.png",q,q),q),"whatsapp",new A.ahv(r),"Chat on WhatsApp"),m=r.r,l=m?1:0
+L(a){var s,r=this,q=null,p=!(A.bf(a,q,t.w).w.a.a>=1024),o=p?r.a15(a):q,n=A.atf(B.D4,new A.c2(B.nc,A.atA("assets/images/b.png",q,q),q),"whatsapp",new A.ahv(r),"Chat on WhatsApp"),m=r.r,l=m?1:0
 m=m?1:0
 s=t.p
 l=A.cn(A.c([n,B.cV,A.as6(A.aoI(A.atf(q,B.G8,"top",new A.ahw(r),"Back to Top"),B.a3,B.R,m),B.a3,B.R,l)],s),B.db,B.w,B.bl)
