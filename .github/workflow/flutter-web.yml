@@ -1,0 +1,43 @@
+name: Deploy Flutter Web
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "stable"
+
+      - run: flutter pub get
+
+      - run: flutter build web --release
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/deploy-pages@v4
