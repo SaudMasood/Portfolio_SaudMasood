@@ -1,23 +1,43 @@
-name: portfolio
-description: Saud Masood Portfolio App
+name: Deploy Flutter Web
 
-publish_to: 'none'
+on:
+  push:
+    branches:
+      - main
 
-environment:
-  sdk: ">=3.0.0 <4.0.0"
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
-dependencies:
-  flutter:
-    sdk: flutter
-  url_launcher: ^6.3.0
-  font_awesome_flutter: ^10.8.0
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+    steps:
+      - uses: actions/checkout@v4
 
-flutter:
-  uses-material-design: true
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "stable"
 
-  assets:
-    - assets/images/
+      - run: flutter pub get
+
+      - run: flutter build web --release
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/deploy-pages@v4
